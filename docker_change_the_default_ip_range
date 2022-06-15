@@ -1,0 +1,16 @@
+### update Docker daemon.json file, create if not available
+sudo vim /etc/docker/daemon.json
+
+### insert below code
+{
+ "default-address-pools":
+ [
+ {"base":"10.10.0.0/16","size":24}
+ ]
+}
+
+### restart Docker Engine
+sudo systemctl restart docker
+
+### check IP range of docker0 interface
+ifconfig
